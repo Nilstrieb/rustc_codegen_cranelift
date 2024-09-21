@@ -1,0 +1,33 @@
+From fb0889ed11d842668b96019e85756ec4474d9a0a Mon Sep 17 00:00:00 2001
+From: Noratrieb <48135649+Noratrieb@users.noreply.github.com>
+Date: Sat, 21 Sep 2024 18:40:38 +0200
+Subject: [PATCH] fuck around
+
+---
+ library/std/src/sys/sync/rwlock/mod.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/library/std/src/sys/sync/rwlock/mod.rs b/library/std/src/sys/sync/rwlock/mod.rs
+index 70ba6bf38ef..5917a321660 100644
+--- a/library/std/src/sys/sync/rwlock/mod.rs
++++ b/library/std/src/sys/sync/rwlock/mod.rs
+@@ -1,7 +1,6 @@
+ cfg_if::cfg_if! {
+     if #[cfg(any(
+         all(target_os = "windows", not(target_vendor = "win7")),
+-        target_os = "linux",
+         target_os = "android",
+         target_os = "freebsd",
+         target_os = "openbsd",
+@@ -14,6 +13,7 @@
+         pub use futex::RwLock;
+     } else if #[cfg(any(
+         target_family = "unix",
++        target_os = "linux",
+         all(target_os = "windows", target_vendor = "win7"),
+         all(target_vendor = "fortanix", target_env = "sgx"),
+         target_os = "xous",
+-- 
+2.46.0
+
+
